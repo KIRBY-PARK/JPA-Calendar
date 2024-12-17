@@ -9,15 +9,15 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/calendar")
 public class CalendarController {
-    // 속성
+   // 속성
     private final CalendarService calendarService;
 
-    // 생성자
+   // 생성자
     public CalendarController(CalendarService calendarService) {
         this.calendarService = calendarService;
     }
 
-    // 기능
+   // 기능
     public void createCalendarAPI(){
 
     }
