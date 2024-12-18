@@ -1,5 +1,8 @@
 package com.calendar.JPA_Calendar.service;
 
+import org.springframework.stereotype.Service;
+
+@Service
 public class CalendarService {
     // 속성
 
