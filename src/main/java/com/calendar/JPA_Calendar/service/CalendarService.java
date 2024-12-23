@@ -9,8 +9,8 @@ public class CalendarService {
     // 생성자
 
     // 기능
-    public void create(String name){
-        System.out.println();
+    public void create(String name) {
+        System.out.println("서비스 테스트");
     }
 
 }
