@@ -1,11 +1,8 @@
 package com.calendar.JPA_Calendar.controller;
 
-import com.calendar.JPA_Calendar.dto.CalendarCreateRequestDto;
 import com.calendar.JPA_Calendar.service.CalendarService;
-import jakarta.annotation.PostConstruct;
-import jakarta.annotation.PreDestroy;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -13,6 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/calendar")
 public class CalendarController {
+
     // 속성
     private final CalendarService calendarService;
 
@@ -21,28 +19,17 @@ public class CalendarController {
         this.calendarService = calendarService;
     }
 
-    // 기능
-    @PostConstruct
-    public void init() {
-        System.out.println("@PostConstruct: 초기화 작업 실행");
+    // 캘린더 생성
+    @PostMapping
+    public String createCalendarAPI() {
+        String calendarTitle = "제목이 보이는 곳";
+
+        String saveData = calendarService(calendarTitle);
+        return saveData;
     }
 
-    @PreDestroy
-    public void cleanup() {
-        System.out.println("@PreDestroy: 소멸 작업 실행");
-    }
-    
-    public void createCalendarAPI(@RequestBody CalendarCreateRequestDto calendarCreateRequestDto) {
-        String name = calendarCreateRequestDto.getName();
-        String title = calendarCreateRequestDto.getTitle();
-        String description = calendarCreateRequestDto.getDescription();
-        String date = calendarCreateRequestDto.getDate();
-        String modify = calendarCreateRequestDto.getModify();
-
-        log.info("Create calendar : {}", name);
-        log.info("Create calendar : {}", title);
-        log.info("Create calendar : {}", description);
-        log.info("Create calendar : {}", date);
-        log.info("Create calendar : {}", modify);
+    // 이 부분 없이 빨간줄이 떠서 추가했는데 이유를 아직 몰라서 여쭤보아야하는 부분
+    private String calendarService(String calendarTitle) {
+        return null;
     }
 }
