@@ -27,4 +27,25 @@ public class CalendarService {
         calendarRepository.save(calendar);
         return "캘린더 생성 완료";
     }
+
+    // 캘린더 조회
+    public Calendar getCalendarById(Long id) {
+        return calendarRepository.findById(id)
+                .orElseThrow(() -> new IllegalArgumentException("캘린더를 찾을 수 없습니다."));
+    }
+
+    // 캘린더 수정
+    public String updateCalendarService(Long id, String title) {
+        Calendar calendar = calendarRepository.findById(id)
+                .orElseThrow(() -> new IllegalArgumentException("캘린더를 찾을 수 없습니다."));
+        calendar.setTitle(title);
+        calendarRepository.save(calendar);
+        return "캘린더 수정 완료";
+    }
+
+    // 캘린더 삭제
+    public String deleteCalendarService(Long id) {
+        calendarRepository.deleteById(id);
+        return "캘린더 삭제 완료";
+    }
 }
